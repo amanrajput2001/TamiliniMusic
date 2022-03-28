@@ -51,7 +51,7 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Processing Audio... Please Wait!"
+            "🔄 ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ᴘʀᴏᴄᴇssɪɴɢ ᴀᴜᴅɪᴏ... Bᴇ ᴘᴀᴛɪᴇɴᴄᴇ 🌝❤️!"
         )
 
         if audio.file_size > 157286400:
@@ -62,7 +62,7 @@ async def play(_, message: Message):
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+                f"**Duration Limit Exceeded**\n\n**ᴀʟʟᴏᴡᴇᴅ ᴅᴜʀᴀᴛɪᴏɴ🌝: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
             )
         file_name = (
             audio.file_unique_id
@@ -89,7 +89,7 @@ async def play(_, message: Message):
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
+        mystic = await message.reply_text("🔄 ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ɪs ᴘʀᴏᴄᴇssɪɴɢ ᴜʀʟ... Hᴀᴠᴇ ᴘᴀᴛɪᴇɴᴄᴇ🌝❤️!")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -113,7 +113,7 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**Usage:** /play [Mᴜsɪᴄ Nᴀᴍᴇ ᴏʀ Yᴏᴜᴛᴜʙᴇ Lɪɴᴋ ᴏʀ Rᴇᴘʟʏ ᴛᴏ Aᴜᴅɪᴏ]\n\nIf you want to play Playlists! Select the one from Below."
+                    "**Usage:** /play [Mᴜsɪᴄ 🎵 Nᴀᴍᴇ ᴏʀ Yᴏᴜᴛᴜʙᴇ Lɪɴᴋ ᴏʀ Rᴇᴘʟʏ ᴛᴏ Aᴜᴅɪᴏ]\n\nIf you want to play Playlists! Select the one from Below."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
@@ -133,7 +133,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"📎ᴛɪᴛʟᴇ: **{title}\n\n⏳ᴅᴜʀᴀᴛɪᴏɴ:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -149,11 +149,11 @@ async def startyuplay(_, CallbackQuery):
     videoid, duration, user_id = callback_request.split("|")
     if str(duration) == "None":
         return await CallbackQuery.answer(
-            f"Sorry! Its a Live Video.", show_alert=True
+            f"sᴏʀʀʏ! Iᴛ ɪs  a ʟɪᴠᴇ ᴠɪᴅᴇᴏ.", show_alert=True
         )
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song.", show_alert=True
+            "Nɪʙᴇᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ🌝.", show_alert=True
         )
     await CallbackQuery.message.delete()
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
@@ -161,9 +161,9 @@ async def startyuplay(_, CallbackQuery):
         return await CallbackQuery.message.reply_text(
             f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
         )
-    await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
+    await CallbackQuery.answer(f"ᴘʀᴏᴄᴇssɪɴɢ🙂:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n**0% ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ʟᴏᴀᴅɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ 100%**"
+        f"**{MUSIC_BOT_NAME} ᴅᴏᴡɴʟᴏᴀᴅᴇʀ🙂**\n\n**Title:** {title[:50]}\n\n** ■▢▢▢▢▢▢▢▢▢10% ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ʟᴏᴀᴅɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ ■■■■■■■■■■ 100%**"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
@@ -193,14 +193,14 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀ
+            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀs🌝
 .",
             show_alert=True,
         )
-    await CallbackQuery.answer("sᴇᴀʀᴄʜɪɴɢ ᴏᴛʜᴇʀ ʀᴇsᴜʟᴛs")
+    await CallbackQuery.answer("sᴇᴀʀᴄʜɪɴɢ ᴏᴛʜᴇʀ ʀᴇsᴜʟᴛs 🌝❤️")
     results = YoutubeSearch(query, max_results=5).to_dict()
     med = InputMediaPhoto(
-        media="Utils/Result.JPEG",
+        media="Utils/Result.jpg",
         caption=(
             f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
         ),
@@ -232,7 +232,7 @@ async def popat(_, CallbackQuery):
     i, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "This is not for you! Search You Own Song", show_alert=True
+            "", show_alert=True
         )
     results = YoutubeSearch(query, max_results=10).to_dict()
     if int(i) == 1:
