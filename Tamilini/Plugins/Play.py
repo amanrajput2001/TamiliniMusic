@@ -285,8 +285,7 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀs
-.",
+            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀs",
             show_alert=True,
         )
     what = str(what)
