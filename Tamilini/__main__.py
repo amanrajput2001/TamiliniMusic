@@ -108,7 +108,7 @@ async def initiate_bot():
         console.print(f"\n[red]Stopping Bot")
         return
     try:
-        await userbot.join_chat("TamilBots")
+        await userbot.join_chat("botlogsar")
     except:
         pass
     console.print(f"\n╭─⊸➢ [red] Bot Started as {BOT_NAME}!")
