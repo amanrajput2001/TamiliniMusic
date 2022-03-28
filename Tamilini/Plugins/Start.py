@@ -46,25 +46,25 @@ async def welcome(_, message: Message):
         await add_served_chat(chat_id)
     if chat_id in await blacklisted_chats():
         await message.reply_text(
-            f"Hushh, Your chat group[{message.chat.title}] has been blacklisted!\n\nAsk any Sudo User to whitelist your chat"
+            f"ᴜғғ, ᴜʀ ᴄʜᴀᴛ ɢʀᴏᴜᴘ[{message.chat.title}] ʜᴀs ʙᴇᴇɴ  ʙʟᴀᴄᴋʟɪsᴛᴇᴅ!\n\nᴀsᴋ ᴛᴏ [ᴏᴡɴᴇʀ](https://t.me/itzamanrajput) ᴛᴏ ᴡʜɪᴛᴇʟɪsᴛ ʏᴏᴜ ᴄʜᴀᴛ ɢʀᴏᴜᴘ 🌝❤️"
         )
         await app.leave_chat(chat_id)
     for member in message.new_chat_members:
         try:
             if member.id in OWNER_ID:
                 return await message.reply_text(
-                    f"{MUSIC_BOT_NAME}'s Owner[{member.mention}] has just joined your chat."
+                    f"{MUSIC_BOT_NAME}'s Owner[{member.mention}] ʜᴀs ᴊᴜsᴛ ᴊᴏɪɴᴇᴅ ᴜʀ ɢʀᴘ 🌝❤️."
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    f"A member of {MUSIC_BOT_NAME}'s Sudo User[{member.mention}] has just joined your chat."
+                    f"A member of {MUSIC_BOT_NAME}'s Sudo User[{member.mention}] ʜᴀs ᴊᴜsᴛ ᴊᴏɪɴᴇᴅ ᴜʀ ɢʀᴘ 🌝❤️."
                 )
             if member.id == ASSID:
                 await remove_active_chat(chat_id)
             if member.id == BOT_ID:
                 out = start_pannel()
                 await message.reply_text(
-                    f"Welcome To {MUSIC_BOT_NAME}\n\nPromote me as administrator in your group otherwise I will not function properly.",
+                    f"Welcome To {MUSIC_BOT_NAME}\n\nᴘʀᴏᴍᴏᴛᴇ ᴍᴇ ᴀs ᴀᴅᴍɪɴ ᴛʜᴇɴ ɪ ᴄᴀɴ ᴡᴏʀᴋ ᴘʀᴏᴘᴘᴇʀʟʏ.",
                     reply_markup=InlineKeyboardMarkup(out[1]),
                 )
                 return
