@@ -65,11 +65,11 @@ async def initiate_bot():
     os.system("clear")
     header = Table(show_header=True, header_style="bold yellow")
     header.add_column(
-        "Tamilini Music : The Most Advanced Music Bot"
+        "Panchi  Music Bot: The Most Advanced Music Bot"
     )
     console.print(header)
     with console.status(
-        "[magenta] Booting up Tamilini Music...",
+        "[magenta] Booting up Panchi Music Bot...",
     ) as status:
         console.print("╭─⊸➢ [red]Booting Up The Clients...\n")
         await app.start()
