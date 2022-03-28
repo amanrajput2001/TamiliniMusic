@@ -40,7 +40,7 @@ async def forceclose(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "You're not allowed to close this.", show_alert=True
+            "U ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴛᴏᴜᴄʜ ᴛʜɪs 🌝❤️.", show_alert=True
         )
     await CallbackQuery.message.delete()
     await CallbackQuery.answer()
@@ -56,7 +56,7 @@ async def admin_risghts(_, CallbackQuery):
     command = CallbackQuery.matches[0].group(1)
     if not await is_active_chat(CallbackQuery.message.chat.id):
         return await CallbackQuery.answer(
-            "Nothing is playing on voice chat.", show_alert=True
+            "Nᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ ɪɴ ᴛʜᴇ ᴠᴄ 🙂.", show_alert=True
         )
     chat_id = CallbackQuery.message.chat.id
     if command == "pausecb":
@@ -75,7 +75,7 @@ async def admin_risghts(_, CallbackQuery):
     if command == "resumecb":
         if await is_music_playing(chat_id):
             return await CallbackQuery.answer(
-                "Music is already Resumed.", show_alert=True
+                "Sᴏɴɢ ɪs ᴀʟʀᴇᴅʏ ʀᴇsᴜᴍᴇᴅ 🌝❤️.", show_alert=True
             )
         await music_on(chat_id)
         await Tamilini.pytgcalls.resume_stream(chat_id)
@@ -84,7 +84,7 @@ async def admin_risghts(_, CallbackQuery):
             reply_markup=audio_markup2,
         )
         await CallbackQuery.message.delete()
-        await CallbackQuery.answer("Resumed", show_alert=True)
+        await CallbackQuery.answer("ʀᴇsᴜᴍᴇᴅ", show_alert=True)
     if command == "stopcb":
         try:
             Queues.clear(chat_id)
@@ -93,7 +93,7 @@ async def admin_risghts(_, CallbackQuery):
         await remove_active_chat(chat_id)
         await Tamilini.pytgcalls.leave_group_call(chat_id)
         await CallbackQuery.message.reply_text(
-            f"🎧 Voicechat End/Stopped by {CallbackQuery.from_user.mention}!",
+            f"🎧 ᴠᴄ ᴇɴᴅᴇᴅ/sᴛᴏᴘᴘᴡᴅ ʙʏ ᴛʜɪs ɴɪɢɢᴀ 🙂 {CallbackQuery.from_user.mention}!",
             reply_markup=audio_markup2,
         )
         await CallbackQuery.message.delete()
@@ -103,12 +103,12 @@ async def admin_risghts(_, CallbackQuery):
         if Queues.is_empty(chat_id):
             await remove_active_chat(chat_id)
             await CallbackQuery.message.reply_text(
-                f"No more music in __Queue__ \n\nLeaving Voice Chat..Button Used By :- {CallbackQuery.from_user.mention}"
+                f"ɴᴏ ᴍᴏʀᴇ ᴍᴜsɪᴄ ɪɴ ǫᴜᴇᴜᴇ  \n\n ʙʏ ᴠᴄ sᴇ  ᴊᴀ ʀʜᴀ ʜᴜ🙂 ..ʙᴜᴛᴛᴏɴ ᴜsᴇᴅ ʙʏ :- {CallbackQuery.from_user.mention}"
             )
             await Tamilini.pytgcalls.leave_group_call(chat_id)
             await CallbackQuery.message.delete()
             await CallbackQuery.answer(
-                "Skipped. No more music in Queue", show_alert=True
+                "sᴋɪᴘᴘᴇᴅ. ɴᴏ ᴍᴏʀᴇ ᴍᴜɪsᴄ ɪɴ ǫᴜᴇᴜᴇ 🌝", show_alert=True
             )
             return
         else:
@@ -121,7 +121,7 @@ async def admin_risghts(_, CallbackQuery):
             if str(finxx) != "raw":
                 await CallbackQuery.message.delete()
                 await CallbackQuery.answer(
-                    "Skipped! Playlist Playing....", show_alert=True
+                    "sᴋɪᴘᴘᴇᴅ! Pʟᴀʏʟɪsᴛ ᴘʟᴀʏɪɴɢ 🌝❤️....", show_alert=True
                 )
                 mystic = await CallbackQuery.message.reply_text(
                     f"**{MUSIC_BOT_NAME} Playlist Function**\n\n__Downloading Next Music From Playlist....__\n\nButton Used By :- {CallbackQuery.from_user.mention}"
@@ -133,7 +133,7 @@ async def admin_risghts(_, CallbackQuery):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                    f"**{MUSIC_BOT_NAME} ᴅᴏᴡɴʟᴏᴀᴅᴇʀ**\n\n**Title:** {title[:50]}\n\n10℅ ■▢▢▢▢ ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ɪs ʟᴏᴀᴅɪɴɢ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ 🌝❤️ ■■■■■■ 100%"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
@@ -170,7 +170,7 @@ async def admin_risghts(_, CallbackQuery):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__Duration:__</b> {duration_min} Mins\n👤**__Requested by:__** {mention}"
+                        f"<b>__sᴋᴜᴘᴘᴇᴅ ᴠᴄ __</b>\n\n🎥<b>__sᴛᴀʀᴛᴇᴅ ᴘʟᴀʏɪɴɢ:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__Duration:__</b> {duration_min} Mins\n❤️**__ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:__** {mention}"
                     ),
                 )
                 os.remove(thumb)
@@ -218,7 +218,7 @@ async def admin_risghts(_, CallbackQuery):
                 final_output = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__</b> {title} \n⏳<b>__Duration:__</b> {duration_min} \n👤<b>__Requested by:__ </b> {mention}",
+                    caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ sᴛᴀʀᴛᴇᴅ ᴘʟᴀʏɪɴɢ:__</b> {title} \n⏳<b>__Duration:__</b> {duration_min} \n❤️<b>__Requested by:__ </b> {mention}",
                 )
             await start_timer(
                 videoid,
@@ -264,7 +264,7 @@ async def play_playlist(_, CallbackQuery):
         user_id = CallbackQuery.message.chat.id
         third_name = chat_title
     else:
-        return await CallbackQuery.answer("Error In Playlist.")
+        return await CallbackQuery.answer("ᴇʀʀᴏʀ ɪɴ ᴘʟᴀʏʟɪsᴛ.")
     if not _playlist:
         return await CallbackQuery.answer(
             f"This User has no playlist on servers.", show_alert=True
@@ -330,7 +330,7 @@ async def play_playlist(_, CallbackQuery):
                     )
                 except Exception as e:
                     return await mystic.edit(
-                        "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                        "ᴜɴᴀʙʟᴇ ᴛᴏ ᴊᴏɪɴ ᴠᴄ. ᴍᴀᴋᴇ sᴜʀᴇ ᴠᴄ  is ᴇɴᴀʙʟᴇᴅ 🌝❤️."
                     )
                 theme = await check_theme(chat_id)
                 chat_title = await specialfont_to_normal(chat_title)
@@ -357,7 +357,7 @@ async def play_playlist(_, CallbackQuery):
                 got_queue.append(to_append)
                 await music_on(chat_id)
                 await add_active_chat(chat_id)
-                cap = f"🎥<b>__Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"
+                cap = f"🎥<b>__ᴘʟᴀʏɪɴɢ:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Requested by:__** {CallbackQuery.from_user.mention}"
                 final_output = await CallbackQuery.message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
@@ -432,7 +432,7 @@ async def group_playlist(_, CallbackQuery):
     count = int(count)
     if count == 50:
         return await CallbackQuery.answer(
-            "Sorry! You can only have 50 music in a playlist.",
+            "Sorry! You can only have 60 music in a playlist.",
             show_alert=True,
         )
     loop = asyncio.get_event_loop()
@@ -470,7 +470,7 @@ async def check_playlist(_, CallbackQuery):
     _playlist = await get_playlist_names(user_id, genre)
     if not _playlist:
         return await CallbackQuery.answer(
-            f"No {genre} Playlist on servers. Try adding musics in playlist.",
+            f"No {genre} ᴘʟᴀʏʟɪsᴛ ᴏɴ sᴇʀᴠᴇʀ. Tʀʏɪɴɢ ᴛᴏ ᴀᴅᴅ ᴍᴜsɪᴄ ɪɴ  ᴘʟᴀʏʟɪsᴛ.",
             show_alert=True,
         )
     else:
@@ -485,7 +485,7 @@ async def check_playlist(_, CallbackQuery):
             duration = _note["duration"]
             msg += f"{j}- {title[:60]}\n"
             msg += f"    Duration- {duration} Min(s)\n\n"
-        m = await CallbackQuery.message.reply_text("Pasting Playlist to Bin")
+        m = await CallbackQuery.message.reply_text("ᴘᴀsᴛɪɴɢ ᴘʟᴀʏʟɪsᴛ ᴛᴏ ʙɪɴ")
         link = await paste_queue(msg)
         preview = link + "/preview.png"
         url = link + "/index.txt"
@@ -521,7 +521,7 @@ async def del_playlist(_, CallbackQuery):
         )
         if not a.can_manage_voice_chats:
             return await CallbackQuery.answer(
-                "You don't have the required permission to perform this action.\nPermission: MANAGE VOICE CHATS",
+                "ғɪʀsᴛ ᴛᴀᴋᴇ ᴠᴄ ᴘᴇʀᴍɪsɪᴏɴ ᴛᴏ ᴜsᴇ ɪᴛ 🙂.\nPermission: MANAGE VOICE CHATS",
                 show_alert=True,
             )
         user_id = CallbackQuery.message.chat.id
@@ -529,7 +529,7 @@ async def del_playlist(_, CallbackQuery):
     _playlist = await get_playlist_names(user_id, genre)
     if not _playlist:
         return await CallbackQuery.answer(
-            "Group has no Playlist on Bot's Server", show_alert=True
+            "Gʀᴘ ʜᴀs ɴᴏ ᴘʟᴀʏʟɪsᴛ ᴏɴ ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ʙᴏᴛ's  sᴇʀᴠᴇʀ 🙂", show_alert=True
         )
     else:
         await CallbackQuery.message.delete()
