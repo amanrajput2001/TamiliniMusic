@@ -75,7 +75,7 @@ async def initiate_bot():
         await app.start()
         await userbot.start()
         console.print("╰─⊸➢ [green]Clients Booted Successfully!")
-        initial = await startup_send_new("Starting Tamilini Music...")
+        initial = await startup_send_new("Starting Panchi  Music Bot...")
         await asyncio.sleep(0.5)
         all_over = await startup_send_new("Checking Required Directories...")
         console.print(
