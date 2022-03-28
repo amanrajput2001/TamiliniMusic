@@ -113,12 +113,12 @@ async def play(_, message: Message):
             await message.reply_photo(
                 photo="Utils/Playlist.jpg",
                 caption=(
-                    "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."
+                    "**Usage:** /play [Mᴜsɪᴄ Nᴀᴍᴇ ᴏʀ Yᴏᴜᴛᴜʙᴇ Lɪɴᴋ ᴏʀ Rᴇᴘʟʏ ᴛᴏ Aᴜᴅɪᴏ]\n\nIf you want to play Playlists! Select the one from Below."
                 ),
                 reply_markup=InlineKeyboardMarkup(buttons),
             )
             return
-        mystic = await message.reply_text("🔎 **Searching**...")
+        mystic = await message.reply_text("🔎")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -163,7 +163,7 @@ async def startyuplay(_, CallbackQuery):
         )
     await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n**0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%**"
+        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n**0% ᴘᴀɴᴄʜɪ ᴍᴜsɪᴄ ʟᴏᴀᴅɪɴɢ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛᴇᴅ sᴏɴɢ 100%**"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
@@ -193,10 +193,11 @@ async def search_query_more(_, CallbackQuery):
     query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀ
+.",
             show_alert=True,
         )
-    await CallbackQuery.answer("Searching More Results")
+    await CallbackQuery.answer("sᴇᴀʀᴄʜɪɴɢ ᴏᴛʜᴇʀ ʀᴇsᴜʟᴛs")
     results = YoutubeSearch(query, max_results=5).to_dict()
     med = InputMediaPhoto(
         media="Utils/Result.JPEG",
@@ -285,7 +286,8 @@ async def slider_query_results(_, CallbackQuery):
     what, type, query, user_id = callback_request.split("|")
     if CallbackQuery.from_user.id != int(user_id):
         return await CallbackQuery.answer(
-            "Search Your Own Music. You're not allowed to use this button.",
+            "ɴɪʙʙᴇ sᴇᴀʀᴄʜ ʏᴏᴜʀ ᴏᴡɴ sᴏɴɢ ᴅᴏɴᴛ ɪɴᴛᴇʀᴜᴘᴛ ᴛᴏ ᴏᴛʜᴇʀs
+.",
             show_alert=True,
         )
     what = str(what)
@@ -295,7 +297,7 @@ async def slider_query_results(_, CallbackQuery):
             query_type = 0
         else:
             query_type = int(type + 1)
-        await CallbackQuery.answer("Getting Next Result", show_alert=True)
+        await CallbackQuery.answer("ɢᴇᴛᴛɪɴɢ ɴᴇxᴛ ʀᴇsᴜʟᴛ", show_alert=True)
         (
             title,
             duration_min,
